@@ -3,7 +3,6 @@ import time
 import serial
 import logging
 import datetime
-from pathlib import Path
 from threading import Thread
 from PyQt6.QtWidgets import QApplication
 from pglive.sources.data_connector import DataConnector
