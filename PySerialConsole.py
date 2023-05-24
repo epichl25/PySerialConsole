@@ -45,7 +45,6 @@ def CMD():
 def Logger():
     global logger_start
     CurrentDateTime = datetime.datetime.now()
-
     log_file = './logs/%s.log' % CurrentDateTime.strftime("%d.%m.%Y_%H-%M-%S")
     logging.basicConfig(format='[%(asctime)s] %(levelname)-8s %(message)s',
                                         datefmt='%Y/%m/%d %I:%M:%S %p',
@@ -69,6 +68,10 @@ def Plotter():
     plot_widget.show()
     while True: 
         Thread(target=Update, args=(data_connector,)).start()
+        if ord('q'):
+            break
+    app.exec()
+    running = False
     
 def Update(connector):
     x=0
