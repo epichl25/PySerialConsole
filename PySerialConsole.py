@@ -1,3 +1,4 @@
+import os
 import sys
 import time
 import serial
@@ -92,7 +93,10 @@ if __name__ =="__main__":
     time.sleep(1)
     logger_start = False
     SelectMode=0
-    Path("./logs").mkdir(parents=True, exist_ok=True)
+    try:
+        os.makedirs("./logs")
+    except FileExistsError:
+        pass
     CMD()
     SerialConfig()
     if SelectMode==1:
